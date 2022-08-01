@@ -306,7 +306,7 @@ def update_address(request):
                 print("save")
                 ad = Address(user=request.user,name=name,phone=number,city=city,pin=pin,house_no=home)
                 ad.save()
-                if Address.objects.filter(user=request.user).exists():
+                if Address.objects.filter(user=request.user).count() == 1:
                     ad.primary = True
                     ad.save()
             return redirect('my_address')
