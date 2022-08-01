@@ -51,8 +51,9 @@
         <div class="swiper-slide card" style="width: 15rem;">
             <img src="{{p.pimage.url}}" class="card-img-top h25" alt="...">
             <div class="card-body">
-                <P>{{p.ptitle|truncatechars:30}}</P>
-                <a href="/full/?title={{p.ptitle}}" >show more</a>
+                <a href="/full/?title={{p.ptitle}}" >
+                <P>{{p.ptitle|truncatechars:40}}</P>
+                </a>
 
                 
             </div>
@@ -159,9 +160,10 @@
                         <img src="{{p.pimage.url}}" class="card-img-top h25" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{p.pname}}</h5>
-                            <P>{{p.ptitle|truncatechars:30}}</P>
-
-                            <!-- <a href="#" class="btn-sm btn-primary">Go somewhere</a> -->
+                            <a href="/full/?title={{p.ptitle}}" >
+                            <P>{{p.ptitle|truncatechars:35}}</P>
+</a>
+                            
                         </div>
                     </div>
                     {%endfor%}
