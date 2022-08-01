@@ -37,7 +37,9 @@
     <div class="col-md-6 pt-md-20 pl-5">
         <h2 class="m-2">{{product.ptitle}}</h2>
         <h2 class="m-2 bg-price"> <span><i class="fa-solid fa-rupee-sign"></i></span>{{product.pprice}}</h2>
-        <h4 class="m-2 "><s> <span><i class="fa-solid fa-rupee-sign"></i></span> 250.00</s></h4>
+        {% if product.plessprice %}
+        <h4 class="m-2 "><s> <span><i class="fa-solid fa-rupee-sign"></i></span>{{product.plessprice}} </s></h4>
+{% endif %}
         <h4>Free delivery</h4>
         <form action="{% url 'card' %}" method="post" class="d-inline-block">
             {% csrf_token %}
@@ -74,7 +76,9 @@
 <hr class="under">
 
 <div class="swiper mySwiper bg-white mt-3">
+    <a href="{% url 'seeall' %}" >
     <h2 class="text-center m-3 all">see all</h2>
+</a>
     <div class="swiper-wrapper">
         {%for s in same %}
         <div class="swiper-slide card" style="width: 18rem;">
