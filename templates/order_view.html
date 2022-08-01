@@ -7,10 +7,13 @@
 {% block body %}
 {% for o in ord %}
 <div class="row g-0 mt-3 bg-white">
-  <a href="/full/?title={{o.product.ptitle}}" >
+ 
+
  <div class="col-5 my-auto">
+  <a href="/full/?title={{o.product.ptitle}}" style="display:contents ;">
   <img src="{{o.product.pimage.url}}" class="show-img" alt="...">
  </div>
+
  <div class="col-7">
   <div class="card-body">
     
