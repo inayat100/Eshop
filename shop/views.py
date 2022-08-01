@@ -118,6 +118,7 @@ def my_address(request):
         return render(request,'address.html',{'add':ad,'cd':cd})
     messages.info(request,"you should loging for see your addresss..")
     return redirect('/')
+
 def cat_all(request):
  return render(request,'cat_all.html')
 
@@ -305,6 +306,9 @@ def update_address(request):
                 print("save")
                 ad = Address(user=request.user,name=name,phone=number,city=city,pin=pin,house_no=home)
                 ad.save()
+                if Address.objects.filter(user=request.user).exists():
+                    ad.primary = True
+                    ad.save()
             return redirect('my_address')
         id = request.GET.get('update')
         obj = Address.objects.get(pk=id)
