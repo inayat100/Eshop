@@ -7,19 +7,21 @@
 {% block body %}
 {% for o in ord %}
 <div class="row g-0 mt-3 bg-white">
+  <a href="/full/?title={{o.product.ptitle}}" ></a>
  <div class="col-5 my-auto">
   <img src="{{o.product.pimage.url}}" class="show-img" alt="...">
  </div>
  <div class="col-7">
   <div class="card-body">
-    <a href="/full/?title={{o.product.ptitle}}" >
+    
    <h5 class="card-title">{{o.product.pname}}</h5>
    <h2 class="m-2 bg-price"> <span><i class="fa-solid fa-rupee-sign"></i></span> <strong
      id="price">{{o.product.pprice}}</strong>
    </h2>
    <p class="card-text" id="tt">{{o.product.ptitle|truncatechars:35}}</p>
-  </a>
+  
    <p>order date : {{o.datetime}}</p>
+  </a>
    <h2>status : {{o.order_status}}</h2>
      {% if o.order_status == "confirmed" %}
   <div class="progress">
